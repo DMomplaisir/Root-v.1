@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<header>
+  <title>Root - intro page</title>
+</header>
+<body>
+  <h1>What do you want to do?</h1>
+  <a href="organizer_newprotest.html"><button type="button" id = "startnew">Setup New Protest</button></a>
+  <a href="#"><button type = "button" id ="activate">Activate a Protest</button></a>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+<script>
+
+  // Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyCzniP0Wu1UpfyFwcs3w6PSvE95bMdA0zM",
+  authDomain: "root-d486a.firebaseapp.com",
+  databaseURL: "https://root-d486a.firebaseio.com",
+  projectId: "root-d486a",
+  storageBucket: "",
+  messagingSenderId: "980123833348"
+  };
+  firebase.initializeApp(config);
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    // No user is signed in.
+  }
+});
+</script>
