@@ -40,15 +40,21 @@
   // var datetime = document.getElementById('datetime').value;
   // var twitter_handle = document.getElementById('twitter_handle').value;
   // var event_description = document.getElementById('event_description').value;
+  var user = firebase.auth().currentUser;
+  if (user != null){
+    var userId = user.uid;
+  }
 
-  function createProtest(protest_name, datetime, twitter_handle, location, event_description){
+  function createProtest(protest_name, datetime, twitter_handle, location, event_description,userId){
     firebase.database().ref('protests/' + protest_name).set({
       protest: protest_name,
       datetime: datetime,
       twitter: twitter_handle,
       location: location,
-      description: event_description
+      description: event_description,
+      owner: userID
     });
+
     //assign the protest to the user
   }
 
