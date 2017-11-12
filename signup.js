@@ -1,16 +1,33 @@
 var value = "";
+//show that you submitted the signup --> var organizer;
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyCzniP0Wu1UpfyFwcs3w6PSvE95bMdA0zM",
+  authDomain: "root-d486a.firebaseapp.com",
+  databaseURL: "https://root-d486a.firebaseio.com",
+  projectId: "root-d486a",
+  storageBucket: "",
+  messagingSenderId: "980123833348"
+};
+// Initialize the default app
+firebase.initializeApp(config);
+// You can retrieve services via the defaultApp variable...
 
 function showperson() {
+
 document.getElementById("InitialSignUp").style.display="none";
 value = document.querySelector('input[name = "person"]:checked').value;
+
     if (value == "citizen"){
       document.getElementById("Citizen").style.display="block";
-      document.getElementById("Organizer").style.display="none";
+      var organizer = document.getElementById("Organizer");
+      document.body.removeChild(organizer);
       document.getElementById("caccount").addEventListener("click", turnt);
     }
     else {
       document.getElementById("Organizer").style.display="block";
-      document.getElementById("Citizen").style.display="none";
+      var citizen = document.getElementById("Citizen");
+      document.body.removeChild(citizen);
       document.getElementById("oaccount").addEventListener("click", turnt);
 
     }
@@ -29,33 +46,22 @@ value = document.querySelector('input[name = "person"]:checked').value;
 
 
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCzniP0Wu1UpfyFwcs3w6PSvE95bMdA0zM",
-    authDomain: "root-d486a.firebaseapp.com",
-    databaseURL: "https://root-d486a.firebaseio.com",
-    projectId: "root-d486a",
-    storageBucket: "",
-    messagingSenderId: "980123833348"
-  };
-  firebase.initializeApp(config);
 
-  //Handles the sign up button press.
+
 function turnt(){
 
-  var email ="";
-  var password ="";
   function handleSignUp() {
-    email = document.getElementById('email').value;
-    password = document.getElementById('password').value;
-     if (email.length < 4) {
-       alert('Please enter an email address.');
-       return;
-     }
-     if (password.length < 4) {
-       alert('Please enter a password.');
-       return;
-     }
+    var email = document.getElementById("email").value;
+    console.log(email);
+    var password = document.getElementById("password").value;
+     // if (email.length < 4) {
+     //   alert('Please enter an email address.');
+     //   return;
+     // }
+     // if (password.length < 4) {
+     //   alert('Please enter a password.');
+     //   return;
+     // }
      // Sign in with email and pass.
      // [START createwithemail]
      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -67,27 +73,31 @@ function turnt(){
        } else {
          alert(errorMessage);
        }
-       console.log(error);
+
      });
 
 
      function login(){
+       var email = document.getElementById("email").value;
+       var password = document.getElementById("password").value;
        // var email = document.getElementById('email').value;
        // var password = document.getElementById('password').value;
-       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
          var errorCode = error.code;
          var errorMessage = error.message;
-         console.log(error);
+
        });
      }
 
-     var user = firebase.auth().currentUser;
      var name = document.getElementById('name').value;
      var phone = document.getElementById('phone').value;
-     var interest = document.getElementById('interest').value;
+     if (value == "citizen"){
+       var interest = document.getElementById('interest').value;
+     }
+     else{
      var twitter = document.getElementById('twitter').value;
      var organization = document.getElementById('organ').value;
-
+    }
      function createUserData(){
        user = firebase.auth().currentUser;
        if (user != null){
@@ -98,6 +108,7 @@ function turnt(){
              name: name,
              phone: phone,
              interest: interest,
+             email: email
            });
          }
 
@@ -106,12 +117,13 @@ function turnt(){
              name: name,
              phone: phone,
              twitter: twitter,
-             organization: organ
+             organization: organ,
+             email: email
            });
          }
 
        }
-     else{console.log("thisshitaintwork");}
+     else{console.log("thisaintwork");}
 
      }
      login();
