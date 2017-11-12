@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <title>Root - intro page</title>
+</head>
+
+<body>
+
+<form id= "Initial">
+  <input type="radio" name="person" value="citizen">Citizen<br>
+  <input type="radio" name="person" value="organizer">Organizer<br>
+  <input type="button" onclick= "showperson()" value="Submit">
+</form>
+
+<form id="Citizen" style= "display:none">
+  Full name:<br>
+  <input type="text" name="fullname" id="name"><br>
+  Mobile phone number: <br>
+  <input type="text" name="phone" id="phone"><br>
+  Social Interests: <br>
+  <input type="text" name="interest" id="interest"></br>
+  Email: <br>
+  <input type="email" name="email" id="email"><br>
+  Password: <br>
+  <input type="password" name="password" id="password"><br>
+
+  <input type="button" value="Submit" id="caccount">
+</form>
+
+
+<form id="Organizer" style = "display:none">
+  Full name:<br>
+  <input type="text" name="fullname" id="name"><br>
+  Mobile phone number: <br>
+  <input type="text" name="phone" id="phone"><br>
+  Twitter Handle: <br>
+  <input type="text" name="twitter" id="twitter"><br>
+  Organization: <br>
+  <input type="text" name="organization" id="organ"><br>
+  Username: <br>
+  <input type="email" name="email" id="email"><br>
+  Password: <br>
+  <input type="password" name="password" id="password"><br>
+
+  <input type="button" value="Submit" id="oaccount">
+</form>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="index.js" charset="utf-8"></script>
