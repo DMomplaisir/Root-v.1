@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   <title>Root - intro page</title>
   <!--Import Google Icon Font-->
@@ -11,7 +12,7 @@
   <!--Import jQuery before materialize.js-->
   <div class="container">
   <div class="parallax-container">
-      <div class="parallax"><img src="https://media.vanityfair.com/photos/588e5a4fa69ca3607d241dec/master/pass/airport-protests-anti-trump.jpg"></div>
+      <div class="parallax"><img src="https://media.vanityfair.com/photos/588e5a4fa69ca3607d241dec/master/pass/airport-protests-anti-trump.jpg"/></div>
     </div>
     <div class="section white">
       <div class="row container">
@@ -19,14 +20,14 @@
         <p class="grey-text text-darken-3 lighten-3">A social impact application dedicated to allowing indiviuals to reach the root of issues in their community by providing safe, and manageable way to go to protests.</p>
         <form id="Initial">
           <p>
-          <input type="radio" name="sign"  id="signin"></input>
+          <input type="radio" name="sign" id="signin" value="signin">
           <label for="signin">Sign In</label>
           </p>
           <p>
-          <input type="radio" name="sign"  id="signup"></input>
+          <input type="radio" name="sign"  id="signup" value="signup">
           <label for="signup">Sign Up</label>
           </p>
-          <input type="button" onclick= "showsign()" value="Submit">
+          <input type="button" onclick= "showsign()" id="submit" value="Submit">
         </form>
       </div>
     </div>
@@ -40,6 +41,12 @@
 
 </body>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="index.js" charset="utf-8"></script>
+<script>
+$(document).ready(function(){
+  $('.parallax').parallax();
+});
+</script>
+</html>
