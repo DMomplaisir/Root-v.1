@@ -1,0 +1,19 @@
+<head>
+  <title>Root - signin page</title>
+</head>
+
+<body>
+
+<form id= "InitialSignIn">
+  Email:<br>
+  <input type="email" name="email" id="email"><br>
+  Password:<br>
+  <input type="password" name="password" id="password"><br>
+
+  <input type="radio" name="person" value="citizen" id= "citizen">Citizen<br>
+  <input type="radio" name="person" value="organizer" id="organizer">Organizer<br>
+  <input type="button" onclick= "revealperson()" value="Submit">
+</form>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="signin.js" charset="utf-8"></script>

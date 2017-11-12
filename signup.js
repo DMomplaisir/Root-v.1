@@ -38,7 +38,13 @@ value = document.querySelector('input[name = "person"]:checked').value;
     storageBucket: "",
     messagingSenderId: "980123833348"
   };
-  firebase.initializeApp(config);
+  // Initialize the default app
+  var defaultApp = firebase.initializeApp(config);
+  console.log(defaultApp.name);  // "[DEFAULT]"
+
+  // You can retrieve services via the defaultApp variable...
+  var defaultStorage = defaultApp.storage();
+  var defaultDatabase = defaultApp.database();
 
   //Handles the sign up button press.
 function turnt(){
@@ -112,7 +118,7 @@ function turnt(){
          }
 
        }
-     else{console.log("thisshitaintwork");}
+     else{console.log("thisaintwork");}
 
      }
      login();
