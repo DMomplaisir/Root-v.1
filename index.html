@@ -9,22 +9,37 @@
 
 <body>
   <!--Import jQuery before materialize.js-->
+  <div class="container">
+  <div class="parallax-container">
+      <div class="parallax"><img src="https://media.vanityfair.com/photos/588e5a4fa69ca3607d241dec/master/pass/airport-protests-anti-trump.jpg"></div>
+    </div>
+    <div class="section white">
+      <div class="row container">
+        <h2 class="header">Root</h2>
+        <p class="grey-text text-darken-3 lighten-3">A social impact application dedicated to allowing indiviuals to reach the root of issues in their community by providing safe, and manageable way to go to protests.</p>
+        <form id="Initial">
+          <p>
+          <input type="radio" name="sign"  id="signin"></input>
+          <label for="signin">Sign In</label>
+          </p>
+          <p>
+          <input type="radio" name="sign"  id="signup"></input>
+          <label for="signup">Sign Up</label>
+          </p>
+          <input type="button" onclick= "showsign()" value="Submit">
+        </form>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="https://media1.s-nbcnews.com/j/newscms/2017_04/1883531/170129-muslim-ban-protest-white-house-ok-1349_410fbd40854763eec9cf84156f39ee6f.nbcnews-ux-2880-1000.jpg"/></div>
+    </div>
+  </div>
 
 
 
-  <form id="Initial">
-    <p>
-    <input type="radio" name="sign"  id="signin">Sign In<br>
-    <label for="signin"></label>
-    </p>
-    <p>
-    <input type="radio" name="sign"  id="signup">Sign Up<br>
-    <label for="signup"></label>
-    </p>
-    <input type="button" onclick= "showsign()" value="Submit">
-  </form>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
 </body>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="index.js" charset="utf-8"></script>
