@@ -13,15 +13,17 @@ function revealperson(){
   value = document.querySelector('input[name = "person"]:checked').value;
 
   if(value == "citizen"){
-    email = document.getElementById('email').value;
-    password = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
     login(email, password);
     window.location.replace("citizen_intro.html");
 
   }
 
   else{
-    login();
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    login(email, password);
     window.location.replace("organizer_intro.html");
 
   }
