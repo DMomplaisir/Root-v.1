@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+  <title>Start a New Project</title>
+</head>
+<body>
+  <form name="newprotest">
+    <input type="text" name="protest_name" id="protest_name"></input>
+    <input type="datetime-local" name="datetime" id="datetime"></input>
+    <input type="text" name="twitter_handle" id="twitter_handle"></input>
+    <input type="text" name="location" id="location"></input>
+    <!-- perhaps connect google maps -->
+    <!-- <input type="radio" name="social_causes" value="Race">
+    <input type="radio" name="social_causes" value="Women's Issues">
+    <input type="radio" name="social_causes" value="Enviroment">
+    <input type="radio" name="social_causes" value="Media and Poltiics">
+    <input type="radio" name="social_causes" value="Global Affairs"> -->
+
+    <textarea name="event_description" id="event_description" rows="8" cols="80">Describe the protest aims</textarea>
+
+    <input type="submit" name="submit_button" id ="submit" value="Submit">
+  </form>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+
+  // Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyCzniP0Wu1UpfyFwcs3w6PSvE95bMdA0zM",
+  authDomain: "root-d486a.firebaseapp.com",
+  databaseURL: "https://root-d486a.firebaseio.com",
+  projectId: "root-d486a",
+  storageBucket: "",
+  messagingSenderId: "980123833348"
+  };
+  firebase.initializeApp(config);
+
+
+  var database = firebase.database();
+  // var protest_name = document.getElementById('protest_name').value;
+  // var datetime = document.getElementById('datetime').value;
+  // var twitter_handle = document.getElementById('twitter_handle').value;
+  // var event_description = document.getElementById('event_description').value;
+  var user = firebase.auth().currentUser;
+  if (user != null){
+    var userId = user.uid;
+  }
+
+  function createProtest(protest_name, datetime, twitter_handle, location, event_description,userId){
+    firebase.database().ref('protests/' + protest_name).set({
+      protest: protest_name,
+      datetime: datetime,
+      twitter: twitter_handle,
+      location: location,
+      description: event_description,
+      owner: userID
+    });
+
+    //assign the protest to the user
+  }
+
+
+  function onSubmit(){
+    var protest_name = document.getElementById('protest_name').value;
+    var datetime = document.getElementById('datetime').value;
+    var location = document.getElementById('location').value;
+    var twitter_handle = document.getElementById('twitter_handle').value;
+    var event_description = document.getElementById('event_description').value;
+    createProtest(protest_name, datetime, twitter_handle, location, event_description);
+  }
+  var submit = document.getElementById('submit');
+  submit.addEventListener('click', onSubmit);
+
+
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+  });
+</script>
