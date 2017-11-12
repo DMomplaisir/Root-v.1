@@ -1,0 +1,122 @@
+<head>
+
+  <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+
+   <script>
+   function startTime() {
+       var today = new Date();
+       var h = today.getHours();
+       var m = today.getMinutes();
+       var s = today.getSeconds();
+       m = checkTime(m);
+       s = checkTime(s);
+       document.getElementById('txt').innerHTML =
+       h + ":" + m + ":" + s;
+       var t = setTimeout(startTime, 500);
+   }
+   function checkTime(i) {
+       if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+       return i;
+   }
+   </script>
+
+   <script>
+      window.onload = function() {
+      startTime();
+  }
+</script>
+
+</head>
+<body>
+
+  <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+
+        </ul>
+      </div>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="#test1">Test 1</a></li>
+          <li class="tab"><a href="#test2">Test 2</a></li>
+          <li class="tab"><a class="active" a href="#test3">Tab 3</a></li>
+          <li class="tab"><a href="#test4">Test 4</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="test1" class="col s12">
+
+      <div class="center" id="txt"></div>
+    </div>
+    <div id="test2" class="col s12">
+      <a class="twitter-timeline" data-width="500" data-height="600" data-theme="light" href="https://twitter.com/ShaunKing?ref_src=twsrc%5Etfw">Tweets by ShaunKing</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    </div>
+    <div id="test3" class="col s12">
+      <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHz0_9xtPIOsndf9_nswDtgLGCkKIyjvY&callback=initMap">
+    </script>
+    </div>
+    <div id="test4" class="col s12">
+      <div id="rights">
+        KNOW YOUR Rights<br><br>
+        When PROTESTING you have the right to:
+        <ol>
+          <li>Peacefully assemble to exercise your First Amendment right to protest.</li>
+          <li>Protest in traditional "public forums" such as streets, sidewalks,
+              and parks so lons as you aren't blocking traffic.</li>
+          <li>Protest without a permit in response to recent events.</li>
+          <li>Distribute leaflets and other literature on public sidewalks without
+              a permit.</li>
+          <li>Photograph or videotape cops.</li>
+        </ol>
+        >>Learn more: aclu.org/kyr-protest<<<br><br>
+
+        When STOPPED BY POLICE you have the right to:
+        <ol>
+          <li>Don't run or argue, even if the police are violating your rights</li>
+          <li>Ask if you're free to leave. If you're under arrest, you have a
+              right to know why.</li>
+          <li>You have the right to remain silent.</li>
+          <li>You can refuse consent for a search, but officers may "pat down"
+              your clothing if they suspect a weapon.</li>
+        </ol>
+        >>Learn more: aclu.org/kyr-police<<<br><br>
+      </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<script>
+addEventListener(document, "touchstart", function(e) {
+    console.log(e.defaultPrevented);  // will be false
+    e.preventDefault();   // does nothing since the listener is passive
+    console.log(e.defaultPrevented);  // still false
+  }, Modernizr.passiveeventlisteners ? {passive: true} : false);
+  </script>

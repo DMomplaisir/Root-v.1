@@ -17,7 +17,7 @@
 
     <textarea name="event_description" id="event_description" rows="8" cols="80">Describe the protest aims</textarea>
 
-    <input type="submit" name="submit_button" id ="submit" value="Submit">
+    <input type="submit" name="submit_button" id ="submit"/>
   </form>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
@@ -40,19 +40,18 @@
   // var datetime = document.getElementById('datetime').value;
   // var twitter_handle = document.getElementById('twitter_handle').value;
   // var event_description = document.getElementById('event_description').value;
-  var user = firebase.auth().currentUser;
-  if (user != null){
-    var userId = user.uid;
-  }
 
-  function createProtest(protest_name, datetime, twitter_handle, location, event_description,userId){
+
+
+
+  function createProtest(protest_name, datetime, twitter_handle, location, event_description){
+
     firebase.database().ref('protests/' + protest_name).set({
       protest: protest_name,
       datetime: datetime,
       twitter: twitter_handle,
       location: location,
       description: event_description,
-      owner: userID
     });
 
     //assign the protest to the user
@@ -65,18 +64,14 @@
     var location = document.getElementById('location').value;
     var twitter_handle = document.getElementById('twitter_handle').value;
     var event_description = document.getElementById('event_description').value;
+
     createProtest(protest_name, datetime, twitter_handle, location, event_description);
   }
+
+
   var submit = document.getElementById('submit');
   submit.addEventListener('click', onSubmit);
+</script>
+<script>
 
-
-
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-    } else {
-      // No user is signed in.
-    }
-  });
 </script>
