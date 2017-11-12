@@ -24,7 +24,7 @@ function revealperson(){
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     login(email, password);
-    window.location.replace("organizer_intro.html");
+    window.location.replace("organizer_index.html");
 
   }
 
