@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <header>
   <title>Root - intro page</title>
+  <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </header>
+
 <body>
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">theRoot</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class = "container">
   <h1>What do you want to do?</h1>
-  <a href="organizer_newprotest.html"><button type="button" id = "startnew">Setup New Protest</button></a>
-  <a href="#"><button type = "button" id ="activate">Activate a Protest</button></a>
+  <div class = "row">
+  <a class ="waves-effect waves-light btn center col-s12" href="organizer_newprotest.html">Setup New Protest</a>
+</div>
+<div class = "row">
+  <a href="organizer_activate.html" class="waves-effect center ccol-s12 waves-light btn">Activate a Protest</a>
+  </div>
+
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 

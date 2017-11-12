@@ -1,19 +1,54 @@
 <head>
   <title>Root - signin page</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 </head>
 
 <body>
-
-<form id= "InitialSignIn">
-  Email:<br>
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class  = "row">
+      <h2 class = "col s12 center"> Sign In </h2>
+    </div>
+<div class = "row">
+<form id= "InitialSignIn" class="col s12">
+  <div class= "input-field col s6">
   <input type="text" name="email" id="email"><br>
-  Password:<br>
-  <input type="password" name="password" id="password"><br>
+  <label for="email">Email</label>
+</div>
+<div class="row">
+  <div class= "input-field col s6">
+<input type="password" name="password" id="password">
+<label for="password">Password</label>
+</div>
+</div>
+<div class = "row ">
+<p class="center">
+  <input name="person" type="radio" id="citizen" value="citizen" />
+  <label for="citizen">Citizen</label>
+</p>
+<p class="center">
+  <input name="person" type="radio" value="organizer" />
+  <label for="organizer">Organizer</label>
+</p>
+</div>
 
-  <input type="radio" name="person" value="citizen" id= "citizen">Citizen<br>
-  <input type="radio" name="person" value="organizer" id="organizer">Organizer<br>
-  <input type="button" onclick= "revealperson()" value="Submit">
+<a class="waves-effect waves-light btn center" onclick="revealperson()" value="Submit">Submit</a>
+
 </form>
+</div>
+</div>
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script src="signin.js" charset="utf-8"></script>

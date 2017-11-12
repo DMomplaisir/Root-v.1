@@ -2,12 +2,80 @@
 <head>
   <title>Organizer Activator</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 
 </head>
 <body>
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a href="organizer_index.html">START</a></li>
+        <li class="tab"><a class="active" href="#">ACTIVATE</a></li>
+        <li class="tab"><a href="#test4">SIGN OUT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Five College Conversation</span>
+              <p>Simple aim of developing a conversation on the dynamics of finance on politices in America.</p>
+              <br>
+              <i>Scheduled for Oct 12th</i>
+            </div>
+            <div class="card-action">
+              <a href="#">Begin Protest</a>
+              <a href="#">Cancel Protest</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col s12 m12">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Diversity and Inclusion in the Pioneer Valley</span>
+                <p>Protesting to make the consortium a more diverse and inclusive community</p>
+                <br>
+                <i>Scheduled for Dec 15th</i>
+              </div>
+              <div class="card-action">
+                <a href="#">Begin Protest</a>
+                <a href="#">Cancel Protest</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+              <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                      <div class="card-content white-text">
+                        <span class="card-title">International Socialist Organization III</span>
+                        <p>Third protest of this month, more info @ bit.ly/x2deje</p>
+                        <br>
+                        <i>Scheduled for Jan 9th</i>
+                      </div>
+                      <div class="card-action">
+                        <a href="#">Begin Protest</a>
+                        <a href="#">Cancel Protest</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+  </div>
+
+  </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script>
@@ -24,15 +92,97 @@
   firebase.initializeApp(config);
 
 
-  var database = firebase.database();
+
   // var protest_name = document.getElementById('protest_name').value;
   // var datetime = document.getElementById('datetime').value;
   // var twitter_handle = document.getElementById('twitter_handle').value;
   // var event_description = document.getElementById('event_description').value;
 
-  var userID = firebase.auth().currentUser.uid;
-  var allProtests = database.ref('projects')
+  var database = firebase.database();
 
-    //assign the protest to the user
-  }
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+
+        var uid = user.uid;
+
+    } else {
+      var uid = "uIg0MS8tkJTxqyMG4aQWLEHgIMP2";
+      // No user is signed in.
+    }
+  });
+  email = "text@text.com";
+  password = "password";
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  });
+
+  var user = firebase.auth().currentUser;
+
+  var uid = "uIg0MS8tkJTxqyMG4aQWLEHgIMP2";
+  var allProtests = database.ref('protests/');
+
+// var userProtests = [];
+//   allProtests.once("value")
+//     .then(function(dataSnapshot)){
+//       dataSnapshot.foreach(function(childSnapshot{
+//         childSnapshot.forEach(secondSnapshot){
+//           var key = secondSnapshot.key;
+//           var childData = secondSnapshot.val();
+//           if (key == "owner_uid" && childData == userID){
+//             userProtest.push(childSnapshot);
+//           }
+//         }
+//       }));
+//     }
+//
+// for (var i = 0; i < userProtests.length; i++) {
+//   allProtests.orderByChild("owner_uid").equalTo(userProtests[i]).once(function(snapshot){
+//     console
+//   })
+//   array[i]
+// }
+
+allProtests.orderByChild("owner_uid").equalTo(uid).once("value", function(snapshot){
+
+
+  snapshot.forEach(function(childSnapshot){
+    var div = document.createElement("div");
+    childSnapshot.forEach(function(secondSnapshot){
+      var key = secondSnapshot.key;
+
+      var childData = secondSnapshot.val();
+      console.log(childData);
+
+      if (key == "protest"){
+        var childHolder = document.createElement('h3');
+        var tempHolder = document.createTextNode(childData);
+        childHolder.appendChild(tempHolder);
+        div.appendChild(childHolder);
+
+        console.log("YIKES");
+      }
+
+      else if (key == "description"){
+        var childHolder = document.createElement('p');
+        var tempHolder = document.createTextNode(childData);
+        childHolder.appendChild(tempHolder);
+        div.appendChild(childHolder);
+        console.log("got it");
+      }
+      else {console.log("Yikes");}
+    });
+
+  document.body.appendChild(div);
+  });
+
+});
+
+
+
 </script>
+
+</html?
